@@ -17,5 +17,7 @@
 #import "ExtendedLog.h"
 #import "Macros.h"
 #import "Constants.h"
+#import "UIView+LoadFromNib.h"
+#import "UIViewController+io7Support.h"
 #endif
 

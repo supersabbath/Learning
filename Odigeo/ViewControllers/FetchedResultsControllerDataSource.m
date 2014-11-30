@@ -14,7 +14,7 @@
 @end
 
 @implementation FetchedResultsControllerDataSource
-
+#pragma -DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
     return self.fetchedResultsController.sections.count;
@@ -33,6 +33,9 @@
     
     
     id cell = [tableView dequeueReusableCellWithIdentifier:_reuseIdentifier forIndexPath:indexPath];
+    if (!cell) {
+        cell=[UIView viewFromNib:_reuseIdentifier];
+    }
   
     if ([self.delegate respondsToSelector:@selector(configureCell:withObject:)]) {
         [self.delegate configureCell:cell withObject:object];
@@ -41,9 +44,11 @@
     return cell;
 }
 
+
 - (id)objectAtIndexPath:(NSIndexPath*)indexPath
 {
     return [self.fetchedResultsController objectAtIndexPath:indexPath];
+
 }
 
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
@@ -51,14 +56,20 @@
     return YES;
 }
 
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.delegate deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
 }
 
+
 #pragma mark NSFetchedResultsControllerDelegate
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 85;
+}
 - (void)controllerWillChangeContent:(NSFetchedResultsController*)controller
 {
     [self.tableView beginUpdates];
@@ -92,18 +103,11 @@
  
     _fetchedResultsController.delegate = self;
     NSError *error =nil;
-    
-    @try {
+   
         if ([_fetchedResultsController performFetch:NULL] == NO) {
             NSLog(@"Invalid sort, %@",[error.userInfo debugDescription]);
         }
-    }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception.userInfo.debugDescription);
-    }
-    @finally {
-        
-    }
+  
    
 }
 

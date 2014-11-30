@@ -9,9 +9,11 @@
 #import "TicketsTableViewController.h"
 #import "FetchedResultsControllerDataSource.h"
 #import "Ticket.h"
+#import "InBoundFlight.h"
+#import "OutBoundFlight.h"
+#import "PriceTableViewCell.h"
 
-
-static NSString *const reuseCellID = @"OdigeoCell";
+static NSString *const reuseCellID = @"PriceTableViewCell";
 
 @interface TicketsTableViewController () <FetchedResultsControllerDataSourceDelegate>
 
@@ -23,13 +25,17 @@ static NSString *const reuseCellID = @"OdigeoCell";
 @implementation TicketsTableViewController
 
 #pragma mark -ViewController livecycle
+ 
+
 - (void)viewDidLoad
 {
    
     
     [super viewDidLoad];
     
-    UINib *cellNib = [UINib nibWithNibName:@"Cell" bundle:nil];
+    [self configureEdgeLayout];
+    
+    UINib *cellNib = [UINib nibWithNibName:reuseCellID bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:reuseCellID];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ticket"];
@@ -54,10 +60,12 @@ static NSString *const reuseCellID = @"OdigeoCell";
 
 #pragma mark -FetchedResultsControllerDataSource
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(Ticket*) flightTicket
+- (void)configureCell:(PriceTableViewCell *)cell withObject:(Ticket*) flightTicket
 {
-    cell.textLabel.text = [flightTicket.amount stringValue];
-    cell.detailTextLabel.text = flightTicket.currency;
+    
+    cell.fromLabel.text = [flightTicket.inBoundFlight origin];
+    cell.priceLabel.text = [flightTicket.amount stringValue];
+    cell.destinationLabel.text = flightTicket.inBoundFlight.destiny;
 }
 
 - (void)deleteObject:(id)object

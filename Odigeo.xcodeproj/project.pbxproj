@@ -31,8 +31,16 @@
 		0C263D761A2B55DB001C563C /* WSCurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D751A2B55DB001C563C /* WSCurrencyConverter.m */; };
 		0C263D771A2B55DB001C563C /* WSCurrencyConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D751A2B55DB001C563C /* WSCurrencyConverter.m */; };
 		0C263D7A1A2B562D001C563C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D781A2B562D001C563C /* Constants.m */; };
-		0C263D7D1A2B90C2001C563C /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D7C1A2B90C2001C563C /* Cell.xib */; };
-		0C263D7E1A2B90C2001C563C /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D7C1A2B90C2001C563C /* Cell.xib */; };
+		0C263D841A2BB693001C563C /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D811A2BB693001C563C /* UIView+LoadFromNib.m */; };
+		0C263D851A2BB693001C563C /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D811A2BB693001C563C /* UIView+LoadFromNib.m */; };
+		0C263D861A2BB693001C563C /* UIViewController+io7Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D831A2BB693001C563C /* UIViewController+io7Support.m */; };
+		0C263D871A2BB693001C563C /* UIViewController+io7Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D831A2BB693001C563C /* UIViewController+io7Support.m */; };
+		0C263D891A2BBDF2001C563C /* ico-return2014.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D881A2BBDF2001C563C /* ico-return2014.png */; };
+		0C263D8B1A2BBDFA001C563C /* ico-departure2014.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8A1A2BBDFA001C563C /* ico-departure2014.png */; };
+		0C263D8F1A2BBE44001C563C /* PriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */; };
+		0C263D901A2BBE44001C563C /* PriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */; };
+		0C263D911A2BBE44001C563C /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */; };
+		0C263D921A2BBE44001C563C /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */; };
 		0CC6123E1A2B473F00D4C9A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6123D1A2B473F00D4C9A9 /* main.m */; };
 		0CC612411A2B473F00D4C9A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC612401A2B473F00D4C9A9 /* AppDelegate.m */; };
 		0CC612491A2B473F00D4C9A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC612481A2B473F00D4C9A9 /* Images.xcassets */; };
@@ -98,7 +106,15 @@
 		0C263D751A2B55DB001C563C /* WSCurrencyConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCurrencyConverter.m; sourceTree = "<group>"; };
 		0C263D781A2B562D001C563C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		0C263D791A2B562D001C563C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		0C263D7C1A2B90C2001C563C /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		0C263D801A2BB693001C563C /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadFromNib.h"; sourceTree = "<group>"; };
+		0C263D811A2BB693001C563C /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadFromNib.m"; sourceTree = "<group>"; };
+		0C263D821A2BB693001C563C /* UIViewController+io7Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+io7Support.h"; sourceTree = "<group>"; };
+		0C263D831A2BB693001C563C /* UIViewController+io7Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+io7Support.m"; sourceTree = "<group>"; };
+		0C263D881A2BBDF2001C563C /* ico-return2014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-return2014.png"; sourceTree = "<group>"; };
+		0C263D8A1A2BBDFA001C563C /* ico-departure2014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-departure2014.png"; sourceTree = "<group>"; };
+		0C263D8C1A2BBE44001C563C /* PriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceTableViewCell.h; sourceTree = "<group>"; };
+		0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceTableViewCell.m; sourceTree = "<group>"; };
+		0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
 		0CC612381A2B473F00D4C9A9 /* Odigeo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Odigeo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC6123C1A2B473F00D4C9A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CC6123D1A2B473F00D4C9A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,6 +184,8 @@
 		0C263D461A2B4C94001C563C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C263D8A1A2BBDFA001C563C /* ico-departure2014.png */,
+				0C263D881A2BBDF2001C563C /* ico-return2014.png */,
 				0C263D791A2B562D001C563C /* Constants.h */,
 				0C263D781A2B562D001C563C /* Constants.m */,
 				0C263D471A2B4C94001C563C /* backImage.png */,
@@ -182,6 +200,7 @@
 		0C263D511A2B4C9D001C563C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0C263D7F1A2BB693001C563C /* Categories */,
 				0C263D541A2B4C9D001C563C /* Macros */,
 			);
 			path = Utils;
@@ -225,6 +244,17 @@
 			);
 			name = WebServices;
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0C263D7F1A2BB693001C563C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0C263D801A2BB693001C563C /* UIView+LoadFromNib.h */,
+				0C263D811A2BB693001C563C /* UIView+LoadFromNib.m */,
+				0C263D821A2BB693001C563C /* UIViewController+io7Support.h */,
+				0C263D831A2BB693001C563C /* UIViewController+io7Support.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		0CC6122F1A2B473F00D4C9A9 = {
@@ -313,11 +343,13 @@
 		0CC6126F1A2B494700D4C9A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0C263D7C1A2B90C2001C563C /* Cell.xib */,
 				0CC612701A2B494700D4C9A9 /* AnimationMessageView.h */,
 				0CC612711A2B494700D4C9A9 /* AnimationMessageView.m */,
 				0CC612721A2B494700D4C9A9 /* UIImage+ImageEffects.h */,
 				0CC612731A2B494700D4C9A9 /* UIImage+ImageEffects.m */,
+				0C263D8C1A2BBE44001C563C /* PriceTableViewCell.h */,
+				0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */,
+				0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,14 +447,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C263D911A2BBE44001C563C /* PriceTableViewCell.xib in Resources */,
 				0C263D4C1A2B4C94001C563C /* backImage.png in Resources */,
 				0CC6126E1A2B492B00D4C9A9 /* TicketsTableViewController.xib in Resources */,
 				0C263D501A2B4C94001C563C /* whitePlane.png in Resources */,
 				0C263D4E1A2B4C94001C563C /* gray.png in Resources */,
-				0C263D7D1A2B90C2001C563C /* Cell.xib in Resources */,
+				0C263D891A2BBDF2001C563C /* ico-return2014.png in Resources */,
 				0CC612491A2B473F00D4C9A9 /* Images.xcassets in Resources */,
 				0C263D4D1A2B4C94001C563C /* flight.png in Resources */,
 				0C263D4F1A2B4C94001C563C /* plane.png in Resources */,
+				0C263D8B1A2BBDFA001C563C /* ico-departure2014.png in Resources */,
 				0CC612691A2B48D400D4C9A9 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,8 +465,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C263D921A2BBE44001C563C /* PriceTableViewCell.xib in Resources */,
 				0C263D681A2B4DFE001C563C /* singleTicket.json in Resources */,
-				0C263D7E1A2B90C2001C563C /* Cell.xib in Resources */,
 				0C263D691A2B4DFE001C563C /* tickets.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,12 +478,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C263D861A2BB693001C563C /* UIViewController+io7Support.m in Sources */,
 				0C263D411A2B4C8B001C563C /* NSFileManager+TBDirectories.m in Sources */,
 				0C263D441A2B4C8B001C563C /* NSManagedObjectID+TBString.m in Sources */,
 				0C263D3F1A2B4C8B001C563C /* FCPCoreDataImporter.m in Sources */,
 				0CC6126D1A2B492B00D4C9A9 /* TicketsTableViewController.m in Sources */,
 				0CC612741A2B494700D4C9A9 /* AnimationMessageView.m in Sources */,
 				0C263D7A1A2B562D001C563C /* Constants.m in Sources */,
+				0C263D841A2BB693001C563C /* UIView+LoadFromNib.m in Sources */,
+				0C263D8F1A2BBE44001C563C /* PriceTableViewCell.m in Sources */,
 				0C263D761A2B55DB001C563C /* WSCurrencyConverter.m in Sources */,
 				0CC612751A2B494700D4C9A9 /* UIImage+ImageEffects.m in Sources */,
 				0CC612411A2B473F00D4C9A9 /* AppDelegate.m in Sources */,
@@ -478,8 +515,11 @@
 				0C263D6A1A2B4DFE001C563C /* WSManagerTest.m in Sources */,
 				0C263D721A2B553F001C563C /* currencyServiceTest.m in Sources */,
 				0CC612801A2B49B300D4C9A9 /* OutBoundFlight.m in Sources */,
+				0C263D851A2BB693001C563C /* UIView+LoadFromNib.m in Sources */,
 				0CC612821A2B49B300D4C9A9 /* Ticket.m in Sources */,
+				0C263D901A2BBE44001C563C /* PriceTableViewCell.m in Sources */,
 				0C263D6D1A2B4E11001C563C /* FCPCoreDataImporterTests.m in Sources */,
+				0C263D871A2BB693001C563C /* UIViewController+io7Support.m in Sources */,
 				0C263D771A2B55DB001C563C /* WSCurrencyConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,7 +569,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -565,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

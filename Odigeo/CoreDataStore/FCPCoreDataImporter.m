@@ -41,22 +41,24 @@
     
     [_webservice fetchFlightsforURL:serviceURL withCompletionBlock :^(NSArray *ticketsInfo, NSError *error) {
         
+        
+        NSLog(@"WSService  returns %d fresh new objects", ticketsInfo.count);
         [_storageContext performBlock:^{
             
-            for (NSDictionary *ticket in ticketsInfo) {  // no me tengo que precupar por eficiencia por que no hay un id para identifar cada vuelo
+            for (NSDictionary *ticket in ticketsInfo) {  // no me tengo que precupar por eficiencia porque no hay un id para identifar cada vuelo. Solo se insertan
                 Ticket *fligthTicket =[Ticket createManagedObjectInContext:_storageContext];
                 [fligthTicket loadPriceFromDictionary:ticket[@"price"]];
-//                InBoundFlight *inBound=[InBoundFlight createManagedObjectInContext:_storageContext];
-//               [inBound loadFlightDataFromDictionary:ticket[@"inBound"]];
-//               OutBoundFlight *outBound=[OutBoundFlight createManagedObjectInContext:_storageContext];
-//                [outBound loadFlightDataFromDictionary:ticket[@"outBound"]];
-//                
-//                fligthTicket.inBoundFlight = inBound;
-//                fligthTicket.outBountFlight = outBound;
-//                
-                 self.batchCount++;
+                InBoundFlight *inBound=[InBoundFlight createManagedObjectInContext:_storageContext];
+                [inBound loadFlightDataFromDictionary:ticket[@"inBound"]];
+                OutBoundFlight *outBound=[OutBoundFlight createManagedObjectInContext:_storageContext];
+                [outBound loadFlightDataFromDictionary:ticket[@"outBound"]];
                 
-                if (self.batchCount % 100 == 0) {  // notificamos al main context para que refrescar cada 10
+                fligthTicket.inBoundFlight = inBound;
+                fligthTicket.outBountFlight = outBound;
+                //
+                self.batchCount++;
+                
+                if (self.batchCount % 10 == 0) {  // notificamos al main context para que refrescar cada 10
                     NSError *error = nil;
                     [_storageContext save:&error];
                     if (error) {
@@ -68,6 +70,6 @@
             }
         }];
     }];
-
+    
 }
 @end

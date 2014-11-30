@@ -42,7 +42,9 @@
     _opertionBlock = block;
     
     dispatch_async(_queue, ^{
-        
+        [self finishWithBlock:_opertionBlock andResonseData:@{@"USD":@"1.0",@"cache":@"true"}  andError:nil];
+        return ;
+#warning OJO esto esta asi porque falla el servicio
         id rate  = [self ratefromCache:currency];
         
         if (rate == [NSNull null]) {
@@ -92,7 +94,7 @@
 -(NSMutableURLRequest*) currencyServiceRequestForURL:(NSURL*) serviceURL
 {
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serviceURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serviceURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
     [request setHTTPShouldUsePipelining:YES]; // faster htpp communication if server supports it
     return request;
     
@@ -182,57 +184,6 @@
 
 }
 
-
-//#pragma mark - NSURLConnection delegates
-//
-//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-//    
-//    _inComingData = [NSMutableData data];
-//    
-//}
-//
-//
-//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-//    [_inComingData appendData:data];
-//    
-//}
-//
-//
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    
-//    
-//    NSDictionary * currencyValue = (NSDictionary *)[self parseDataToJson:_inComingData];
-//    if (currencyValue[@"err"]) {
-//        //_block(nil,currencyValue[@"err"]);
-//    }else{
-//        
-//        _cache[currencyValue[@"to"]]=currencyValue[@"rate"];
-//    }
-//}
-//
-//
-//
-//-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-//{
-//    
-//}
-//
-//- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
-//    
-//    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)[cachedResponse response];
-//    
-//    // Look up the cache policy used in our request
-//    if([connection currentRequest].cachePolicy == NSURLRequestUseProtocolCachePolicy) {
-//        NSDictionary *headers = [httpResponse allHeaderFields];
-//        NSString *cacheControl = [headers valueForKey:@"Cache-Control"];
-//        NSString *expires = [headers valueForKey:@"Expires"];
-//        if((cacheControl == nil) && (expires == nil)) {
-//            NSLog(@"server does not provide expiration information and we are using NSURLRequestUseProtocolCachePolicy");
-//            return nil; // don't cache this
-//        }
-//    }
-//    return cachedResponse;
-//}
 
 
 @end

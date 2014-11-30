@@ -15,9 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dataSource" destination="AO9-gM-fIn" id="2r9-4X-ELC"/>
-                <outlet property="delegate" destination="-1" id="aAB-Qc-PnY"/>
+                <outlet property="delegate" destination="AO9-gM-fIn" id="4Qc-DJ-hHJ"/>
             </connections>
         </tableView>
         <customObject id="AO9-gM-fIn" customClass="FetchedResultsControllerDataSource">

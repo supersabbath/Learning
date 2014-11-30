@@ -28,14 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [_backImageView setImage:[self blurWithImageEffects:[UIImage imageNamed:@"backImage.png"]]];
-}
-
--(void) viewDidAppear:(BOOL)animated {
-
-    
-    [super viewDidAppear:animated];
     [_messageView animateArc:_plane];
-
+    [self configureEdgeLayout];
 }
 
 

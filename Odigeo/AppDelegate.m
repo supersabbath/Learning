@@ -35,7 +35,7 @@
     
     [self.window makeKeyAndVisible];
    
-   // [self startWebServicesConnection];
+   //[self startWebServicesConnection];
     
     return YES;
     
