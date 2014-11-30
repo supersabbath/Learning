@@ -1,0 +1,32 @@
+[{
+class: "com.odigeo.Flight",
+id: null,
+inBound: {
+class: "com.odigeo.Segment",
+id: null,
+airline: "U2",
+arrivalDate: "2015-03-08",
+arrivalTime: "17:43",
+departureDate: "2015-03-08",
+departureTime: "04:16",
+destiny: "LON",
+origin: "MAD"
+},
+outBound: {
+class: "com.odigeo.Segment",
+id: null,
+airline: "AF",
+arrivalDate: "2015-02-26",
+arrivalTime: "12:55",
+departureDate: "2015-02-26",
+departureTime: "22:16",
+destiny: "MAD",
+origin: "LON"
+},
+price: {
+class: "com.odigeo.Money",
+id: null,
+amount: 330.14213902778573,
+currency: "EUR"
+}
+}]

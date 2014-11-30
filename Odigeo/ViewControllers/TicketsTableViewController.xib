@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicketsTableViewController">
+            <connections>
+                <outlet property="fetchDataSource" destination="AO9-gM-fIn" id="g2E-tS-pIA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="FYo-ci-hMI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="dataSource" destination="AO9-gM-fIn" id="2r9-4X-ELC"/>
+                <outlet property="delegate" destination="-1" id="aAB-Qc-PnY"/>
+            </connections>
+        </tableView>
+        <customObject id="AO9-gM-fIn" customClass="FetchedResultsControllerDataSource">
+            <connections>
+                <outlet property="tableView" destination="i5M-Pr-FkT" id="nNe-8f-Ni6"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>
