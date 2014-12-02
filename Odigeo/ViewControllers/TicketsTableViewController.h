@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-@class  FetchedResultsControllerDataSource;
+#import "FetchedResultsControllerDataSource.h"
 
-@interface TicketsTableViewController : UITableViewController
+@class  FetchedResultsControllerDataSource;
+@class Ticket;
+@class WSCurrencyConverter;
+
+
+@interface TicketsTableViewController : UITableViewController  <FetchedResultsControllerDataSourceDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
+@property (strong, nonatomic) IBOutlet FetchedResultsControllerDataSource *fetchDataSource;
+
+ 
 @end
+

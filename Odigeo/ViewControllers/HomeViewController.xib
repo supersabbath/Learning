@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="airLinesBTN" destination="0yu-KT-piO" id="g2J-0k-oyr"/>
                 <outlet property="backImageView" destination="cL9-Nw-S3Z" id="8Vf-v8-nyO"/>
                 <outlet property="messageView" destination="avW-BH-BeT" id="tQE-FK-iNQ"/>
                 <outlet property="plane" destination="8Wx-PW-pB9" id="The-3z-idG"/>
+                <outlet property="timeTableBTN" destination="yVu-6k-i3l" id="nCT-pc-A7n"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,54 +24,24 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cL9-Nw-S3Z">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yVu-6k-i3l">
-                    <rect key="frame" x="57" y="666" width="300" height="50"/>
-                    <color key="backgroundColor" red="0.91280691960000004" green="0.91280691960000004" blue="0.91280691960000004" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Button">
-                                <attributes>
-                                    <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
-                    <connections>
-                        <action selector="presentTimeTablesLIst:" destination="-1" eventType="touchUpInside" id="b8d-Dt-r8B"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yu-KT-piO">
+                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yu-KT-piO">
                     <rect key="frame" x="57" y="596" width="300" height="50"/>
                     <color key="backgroundColor" white="1" alpha="0.56000000000000005" colorSpace="calibratedWhite"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Button">
-                                <attributes>
-                                    <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Sort by Airline"/>
                     <connections>
                         <action selector="presentAirlinesList:" destination="-1" eventType="touchUpInside" id="Qna-UG-foW"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJC-1v-fVG">
+                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJC-1v-fVG">
                     <rect key="frame" x="57" y="526" width="300" height="50"/>
                     <color key="backgroundColor" red="0.91280691960000004" green="0.91280691960000004" blue="0.91280691960000004" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="6s7-fb-bYc"/>
                         <constraint firstAttribute="height" constant="50" id="Vmm-ky-0bZ"/>
                     </constraints>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Precios">
-                                <attributes>
-                                    <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Sort by Price"/>
                     <connections>
                         <action selector="presentPriceList:" destination="-1" eventType="touchUpInside" id="7OJ-O6-VR2"/>
                     </connections>
@@ -95,6 +68,15 @@
                         <constraint firstAttribute="centerX" secondItem="N0e-Hf-XU2" secondAttribute="centerX" id="uUw-Uz-uCd"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVu-6k-i3l">
+                    <rect key="frame" x="57" y="666" width="300" height="50"/>
+                    <color key="backgroundColor" red="0.91280691960000004" green="0.91280691960000004" blue="0.91280691960000004" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Sort by Timetable"/>
+                    <connections>
+                        <action selector="presentTimeTablesLIst:" destination="-1" eventType="touchUpInside" id="b8d-Dt-r8B"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -108,7 +90,7 @@
                 <constraint firstItem="0yu-KT-piO" firstAttribute="top" secondItem="uJC-1v-fVG" secondAttribute="bottom" constant="20" id="VRa-VV-sud"/>
                 <constraint firstAttribute="trailing" secondItem="cL9-Nw-S3Z" secondAttribute="trailing" id="XPW-QY-r27"/>
                 <constraint firstItem="cL9-Nw-S3Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XUk-QK-IUo"/>
-                <constraint firstItem="avW-BH-BeT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="cyl-m1-1kE"/>
+                <constraint firstItem="avW-BH-BeT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="750" constant="70" id="cyl-m1-1kE"/>
                 <constraint firstItem="yVu-6k-i3l" firstAttribute="top" secondItem="0yu-KT-piO" secondAttribute="bottom" constant="20" id="dBe-Zv-BeZ"/>
                 <constraint firstAttribute="bottom" secondItem="yVu-6k-i3l" secondAttribute="bottom" constant="20" id="fOT-Tz-Jt1"/>
                 <constraint firstItem="0yu-KT-piO" firstAttribute="height" secondItem="uJC-1v-fVG" secondAttribute="height" id="h7Q-fv-UJM"/>
@@ -118,7 +100,7 @@
                 <constraint firstAttribute="centerX" secondItem="yVu-6k-i3l" secondAttribute="centerX" id="rHz-Xm-v4o"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="337" y="320"/>
+            <point key="canvasLocation" x="337" y="490"/>
         </view>
     </objects>
     <resources>

@@ -10,5 +10,8 @@
 
 @interface HomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
+@property (weak, nonatomic) IBOutlet UIButton *airLinesBTN;
+
+@property (weak, nonatomic) IBOutlet UIButton *timeTableBTN;
 
 @end

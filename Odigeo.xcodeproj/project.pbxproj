@@ -38,9 +38,13 @@
 		0C263D891A2BBDF2001C563C /* ico-return2014.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D881A2BBDF2001C563C /* ico-return2014.png */; };
 		0C263D8B1A2BBDFA001C563C /* ico-departure2014.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8A1A2BBDFA001C563C /* ico-departure2014.png */; };
 		0C263D8F1A2BBE44001C563C /* PriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */; };
-		0C263D901A2BBE44001C563C /* PriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */; };
 		0C263D911A2BBE44001C563C /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */; };
 		0C263D921A2BBE44001C563C /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */; };
+		0C263D941A2BCB1E001C563C /* HomeViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D931A2BCB1E001C563C /* HomeViewControllerTest.m */; };
+		0C473C1A1A2D942C00F2BEFA /* AirlinesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C473C181A2D942C00F2BEFA /* AirlinesListTableViewController.m */; };
+		0C473C1B1A2D942C00F2BEFA /* AirlinesListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C473C191A2D942C00F2BEFA /* AirlinesListTableViewController.xib */; };
+		0C473C1F1A2D976900F2BEFA /* AirlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C473C1D1A2D976900F2BEFA /* AirlineTableViewCell.m */; };
+		0C473C201A2D976900F2BEFA /* AirlineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C473C1E1A2D976900F2BEFA /* AirlineTableViewCell.xib */; };
 		0CC6123E1A2B473F00D4C9A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6123D1A2B473F00D4C9A9 /* main.m */; };
 		0CC612411A2B473F00D4C9A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC612401A2B473F00D4C9A9 /* AppDelegate.m */; };
 		0CC612491A2B473F00D4C9A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC612481A2B473F00D4C9A9 /* Images.xcassets */; };
@@ -115,6 +119,13 @@
 		0C263D8C1A2BBE44001C563C /* PriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceTableViewCell.h; sourceTree = "<group>"; };
 		0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceTableViewCell.m; sourceTree = "<group>"; };
 		0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
+		0C263D931A2BCB1E001C563C /* HomeViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTest.m; sourceTree = "<group>"; };
+		0C473C171A2D942C00F2BEFA /* AirlinesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlinesListTableViewController.h; sourceTree = "<group>"; };
+		0C473C181A2D942C00F2BEFA /* AirlinesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlinesListTableViewController.m; sourceTree = "<group>"; };
+		0C473C191A2D942C00F2BEFA /* AirlinesListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirlinesListTableViewController.xib; sourceTree = "<group>"; };
+		0C473C1C1A2D976900F2BEFA /* AirlineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlineTableViewCell.h; sourceTree = "<group>"; };
+		0C473C1D1A2D976900F2BEFA /* AirlineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlineTableViewCell.m; sourceTree = "<group>"; };
+		0C473C1E1A2D976900F2BEFA /* AirlineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirlineTableViewCell.xib; sourceTree = "<group>"; };
 		0CC612381A2B473F00D4C9A9 /* Odigeo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Odigeo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC6123C1A2B473F00D4C9A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CC6123D1A2B473F00D4C9A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -313,6 +324,7 @@
 				0C263D5E1A2B4DFE001C563C /* ModelsTest.m */,
 				0C263D631A2B4DFE001C563C /* WSManagerTest.m */,
 				0C263D711A2B553F001C563C /* currencyServiceTest.m */,
+				0C263D931A2BCB1E001C563C /* HomeViewControllerTest.m */,
 			);
 			path = OdigeoTests;
 			sourceTree = "<group>";
@@ -336,6 +348,9 @@
 				0CC612641A2B48D400D4C9A9 /* HomeViewController.h */,
 				0CC612651A2B48D400D4C9A9 /* HomeViewController.m */,
 				0CC612661A2B48D400D4C9A9 /* HomeViewController.xib */,
+				0C473C171A2D942C00F2BEFA /* AirlinesListTableViewController.h */,
+				0C473C181A2D942C00F2BEFA /* AirlinesListTableViewController.m */,
+				0C473C191A2D942C00F2BEFA /* AirlinesListTableViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -350,6 +365,9 @@
 				0C263D8C1A2BBE44001C563C /* PriceTableViewCell.h */,
 				0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */,
 				0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */,
+				0C473C1C1A2D976900F2BEFA /* AirlineTableViewCell.h */,
+				0C473C1D1A2D976900F2BEFA /* AirlineTableViewCell.m */,
+				0C473C1E1A2D976900F2BEFA /* AirlineTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -457,7 +475,9 @@
 				0C263D4D1A2B4C94001C563C /* flight.png in Resources */,
 				0C263D4F1A2B4C94001C563C /* plane.png in Resources */,
 				0C263D8B1A2BBDFA001C563C /* ico-departure2014.png in Resources */,
+				0C473C1B1A2D942C00F2BEFA /* AirlinesListTableViewController.xib in Resources */,
 				0CC612691A2B48D400D4C9A9 /* HomeViewController.xib in Resources */,
+				0C473C201A2D976900F2BEFA /* AirlineTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +510,8 @@
 				0C263D761A2B55DB001C563C /* WSCurrencyConverter.m in Sources */,
 				0CC612751A2B494700D4C9A9 /* UIImage+ImageEffects.m in Sources */,
 				0CC612411A2B473F00D4C9A9 /* AppDelegate.m in Sources */,
+				0C473C1F1A2D976900F2BEFA /* AirlineTableViewCell.m in Sources */,
+				0C473C1A1A2D942C00F2BEFA /* AirlinesListTableViewController.m in Sources */,
 				0C263D5D1A2B4CA5001C563C /* WSManager.m in Sources */,
 				0CC6123E1A2B473F00D4C9A9 /* main.m in Sources */,
 				0CC612811A2B49B300D4C9A9 /* Ticket.m in Sources */,
@@ -513,11 +535,11 @@
 				0CC6127E1A2B49B300D4C9A9 /* InBoundFlight.m in Sources */,
 				0C263D6B1A2B4DFE001C563C /* XCTestCase+FCPHelper.m in Sources */,
 				0C263D6A1A2B4DFE001C563C /* WSManagerTest.m in Sources */,
+				0C263D941A2BCB1E001C563C /* HomeViewControllerTest.m in Sources */,
 				0C263D721A2B553F001C563C /* currencyServiceTest.m in Sources */,
 				0CC612801A2B49B300D4C9A9 /* OutBoundFlight.m in Sources */,
 				0C263D851A2BB693001C563C /* UIView+LoadFromNib.m in Sources */,
 				0CC612821A2B49B300D4C9A9 /* Ticket.m in Sources */,
-				0C263D901A2BBE44001C563C /* PriceTableViewCell.m in Sources */,
 				0C263D6D1A2B4E11001C563C /* FCPCoreDataImporterTests.m in Sources */,
 				0C263D871A2BB693001C563C /* UIViewController+io7Support.m in Sources */,
 				0C263D771A2B55DB001C563C /* WSCurrencyConverter.m in Sources */,

@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *destinationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fromLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *inBoundOrigin;
+@property (weak, nonatomic) IBOutlet UILabel *inBoundDestination;
 
 @end

@@ -19,7 +19,7 @@
     <entity name="Ticket" representedClassName="Ticket" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="currency" optional="YES" attributeType="String" minValueString="0" maxValueString="10" syncable="YES"/>
-        <attribute name="euroPrice" transient="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="euroPrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <relationship name="inBoundFlight" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="InBoundFlight" inverseName="ticket" inverseEntity="InBoundFlight" syncable="YES"/>
         <relationship name="outBountFlight" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="OutBoundFlight" inverseName="ticket" inverseEntity="OutBoundFlight" syncable="YES"/>
     </entity>

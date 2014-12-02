@@ -20,4 +20,5 @@
 @property (nonatomic, retain) OutBoundFlight *outBountFlight;
 
 -(void) loadPriceFromDictionary:(NSDictionary*) dictionary;
+-(BOOL) isEuroPriceAvailable;
 @end

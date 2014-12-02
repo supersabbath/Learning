@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "FCPCoreDataStore.h"
 #import "WSManager.h"
+#import "WSCurrencyConverter.h"
 #import "FCPCoreDataImporter.h"
 
 @interface AppDelegate ()
@@ -35,17 +36,22 @@
     
     [self.window makeKeyAndVisible];
    
-   //[self startWebServicesConnection];
+    [self startWebServicesConnection];
     
     return YES;
     
 }
-
+/**
+ * startWebServicesConnection  Downloads the data from odigeo mock server and fetch the currency rates for each value
+ *                              the rates are cached during the session .
+ *
+ */
 -(void) startWebServicesConnection{
     
     WSManager *wsManager= [[WSManager alloc] init];
+    WSCurrencyConverter *wsCurrencyConverter = [[WSCurrencyConverter alloc] initWithServiceURL:currencySerciveURL];
     
-    _importer = [[FCPCoreDataImporter alloc] initWithContext:[FCPCoreDataStore privateQueueContext] webservice:wsManager];
+    _importer = [[FCPCoreDataImporter alloc] initWithContext:[FCPCoreDataStore privateQueueContext] webservice:wsManager andWSCurrency:wsCurrencyConverter];
     
     [_importer import];
     

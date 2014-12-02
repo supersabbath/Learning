@@ -7,6 +7,7 @@
 #import "FetchedResultsControllerDataSource.h"
 
 
+
 @interface FetchedResultsControllerDataSource ()
 
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
@@ -66,10 +67,6 @@
 
 #pragma mark NSFetchedResultsControllerDelegate
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 85;
-}
 - (void)controllerWillChangeContent:(NSFetchedResultsController*)controller
 {
     [self.tableView beginUpdates];
@@ -101,7 +98,7 @@
 {
     _fetchedResultsController = fetchedResultsController;
  
-    _fetchedResultsController.delegate = self;
+    //_fetchedResultsController.delegate = self;
     NSError *error =nil;
    
         if ([_fetchedResultsController performFetch:NULL] == NO) {

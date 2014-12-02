@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSDate * arrivalDate;
 @property (nonatomic, retain) NSDate * departureDate;
 @property (nonatomic, retain) NSString * origin;
+
 @property (nonatomic, retain) NSString * destiny;
 @property (nonatomic, retain) Ticket *ticket;
 

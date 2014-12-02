@@ -27,5 +27,15 @@
     self.currency =dictionary[@"currency"];
 }
 
+#pragma mark -Currency Process
+
+ -(BOOL) isEuroPriceAvailable
+{
+ 
+    return [self.currency isEqualToString:@"EUR"];
+
+}
+ 
+
 
 @end

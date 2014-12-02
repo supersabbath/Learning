@@ -11,6 +11,7 @@
 #import "UIImage+ImageEffects.h"
 #import "FCPCoreDataStore.h"
 #import "AnimationMessageView.h"
+#import "AirlinesListTableViewController.h"
 
 @interface HomeViewController ()
 
@@ -56,7 +57,9 @@
 
 - (IBAction)presentAirlinesList:(id)sender
 {
-
+    AirlinesListTableViewController* airlinesListViewController =[[AirlinesListTableViewController alloc] initWithNibName:@"AirlinesListTableViewController" bundle:nil];
+    [airlinesListViewController setManagedObjectContext:[FCPCoreDataStore mainQueueContext]];
+    [self pushViewController:airlinesListViewController];
 }
 
 

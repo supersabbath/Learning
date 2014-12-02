@@ -16,6 +16,8 @@
 @property (strong, nonatomic) NSMutableDictionary *blocksQueueDictionary;
 @property (retain, nonatomic) dispatch_queue_t queue;
 @property (copy, nonatomic) WSCurrencyCompletion opertionBlock;
+
+@property (readwrite,nonatomic) BOOL isServiceOverloaded;
 @end
 
 
@@ -30,7 +32,7 @@
         _serviceURL = urlString;
         _cache =[@{} mutableCopy];
         _queue = dispatch_queue_create("com.fcp.MyQueue", DISPATCH_QUEUE_SERIAL);
-
+        _isServiceOverloaded = NO;
     }
     return self;
 }
@@ -41,31 +43,41 @@
 {
     _opertionBlock = block;
     
-    dispatch_async(_queue, ^{
-        [self finishWithBlock:_opertionBlock andResonseData:@{@"USD":@"1.0",@"cache":@"true"}  andError:nil];
-        return ;
-#warning OJO esto esta asi porque falla el servicio
+    if (_isServiceOverloaded) {
+        NSError *error =[NSError errorWithDomain:@"FCPError" code:1 userInfo:@{@"error":@"se han excedido el numero de peticiones"}];
+        
+        [self finishWithBlock:_opertionBlock andResonseData:nil andError:error];
+    }
+    
+    dispatch_sync(_queue, ^{
+
         id rate  = [self ratefromCache:currency];
         
         if (rate == [NSNull null]) {
-            
+          
+            NSLog(@"*******************  Connection %@", currency);
             NSURL *requestURL = [self urlForCurrency:currency];
             NSURLResponse *response= nil;
             NSError *error =nil;
             NSURLRequest *rqest = [self currencyServiceRequestForURL:requestURL];
             NSData *responseData = [NSURLConnection sendSynchronousRequest:rqest returningResponse:&response error:&error];
             
-            if (responseData == nil) {
+            
+            if (responseData == nil ) {
               
                 NSError *er =[NSError errorWithDomain:@"FCPError" code:1 userInfo:[error userInfo]];
                 
                 [self finishWithBlock:_opertionBlock andResonseData:nil andError:er];
             
-            }else {
+            } else if (responseData.length == 970){  // NOTE: exceso de peticiones.. erro
+            
+                _isServiceOverloaded = YES;
+            
+            } else {
                 
-        
-                NSDictionary *formattedResponse = [self createResponseAndSaveToCache:responseData];
+                NSDictionary *formattedResponse = [self formatResponse:responseData];
                 
+                [self safeToCacheRate:[[formattedResponse allValues] firstObject] forKey:currency];
                 
                 [self finishWithBlock:_opertionBlock andResonseData:formattedResponse andError:nil];
             }
@@ -81,6 +93,7 @@
 -(void) finishWithBlock:(WSCurrencyCompletion)block andResonseData:(NSDictionary*) respose andError:(NSError*) error{
 
     dispatch_async(dispatch_get_main_queue(), ^{
+      
         block (respose,error);
     });
 }
@@ -106,6 +119,7 @@
 {
     NSNumber *rate = [_cache objectForKey:currency];
     
+    NSLog(@"rate in chace %@",currency );
     if (!rate) {
         return  [NSNull null];
     }
@@ -116,14 +130,16 @@
 
 -(void) safeToCacheRate:(NSNumber*)number forKey:(NSString*) currency
 {
+    
+    NSLog(@"Savin to cache");
     _cache[currency]=number;
 }
 
--(NSDictionary *) createResponseAndSaveToCache:(id) jsonData
+-(NSDictionary *) formatResponse:(id) jsonData
 {
     
     
-    id result = [self parseDataToJson:jsonData];
+    NSDictionary *result = ( NSDictionary *)[self parseDataToJson:jsonData];
     
     if (result == nil){
        //TODO: control parisng errors
@@ -131,21 +147,19 @@
     }
     
     NSDictionary *responseContainer =nil;
-    NSDictionary *currencyValue=jsonData;
+ 
     
-    if (currencyValue[@"err"]) {
+    if ([result objectForKey:@"err"]) {
         
-        NSError *errr =[NSError errorWithDomain:@"FCPError" code:1 userInfo: @{@"error":jsonData[@"err"]}];
+        NSError *errr =[NSError errorWithDomain:@"FCPError" code:1 userInfo: @{@"error":result[@"err"]}];
         [self finishWithBlock:_opertionBlock andResonseData:nil andError:errr];
         
     }else{
         
-        NSString *currencyKey =currencyValue[@"from"];
+        NSString *currencyKey =result[@"from"];
         
-        NSDecimalNumber *rate =[NSDecimalNumber decimalNumberWithDecimal:[(NSNumber*)currencyValue[@"rate"] decimalValue ]];
-        
-        _cache[currencyKey]=rate;
-        
+        NSDecimalNumber *rate =[NSDecimalNumber decimalNumberWithDecimal:[(NSNumber*)result[@"rate"] decimalValue ]];
+
          responseContainer = @{currencyKey:rate};
         
         return responseContainer;

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 @class WSManager;
+@class WSCurrencyConverter;
 
 @interface FCPCoreDataImporter : NSObject
 
-- (id)initWithContext:(NSManagedObjectContext *)context webservice:(WSManager *)webservice;
+
+- (id)initWithContext:(NSManagedObjectContext *)context webservice:(WSManager *)webservice andWSCurrency:(WSCurrencyConverter*)  wsConverter;
 
 - (void) import;
 

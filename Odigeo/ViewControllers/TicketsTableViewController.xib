@@ -19,7 +19,7 @@
             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dataSource" destination="AO9-gM-fIn" id="2r9-4X-ELC"/>
-                <outlet property="delegate" destination="AO9-gM-fIn" id="4Qc-DJ-hHJ"/>
+                <outlet property="delegate" destination="-1" id="FRs-y3-zOp"/>
             </connections>
         </tableView>
         <customObject id="AO9-gM-fIn" customClass="FetchedResultsControllerDataSource">
