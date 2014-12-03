@@ -18,5 +18,6 @@ Finally, I used TDD to develop some of the CoreData Queries, and to test the 'Ho
 
 
 TODO: the app stores all the data requests to the server.. There is no delete policy programmed .. Just delete the app , to remove all the objects...
+NOTE: the currency conversor services has limited number of request.. is quite easy to overflow.. 
 
 Distribute and enjoy !!
