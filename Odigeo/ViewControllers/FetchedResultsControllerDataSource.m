@@ -15,11 +15,13 @@
 @end
 
 @implementation FetchedResultsControllerDataSource
+
 #pragma -DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
     return self.fetchedResultsController.sections.count;
 }
+
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
@@ -31,7 +33,6 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     id object = [self objectAtIndexPath:indexPath];
-    
     
     id cell = [tableView dequeueReusableCellWithIdentifier:_reuseIdentifier forIndexPath:indexPath];
     if (!cell) {
@@ -106,6 +107,64 @@
         }
   
    
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if ([self.delegate respondsToSelector:NSSelectorFromString(@"sectionableTable")]) {
+        
+    
+    id <NSFetchedResultsSectionInfo> theSection = [[_fetchedResultsController sections] objectAtIndex:section];
+    
+        static NSDateFormatter *formatter = nil;
+        
+        if (!formatter)
+        {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setCalendar:[NSCalendar currentCalendar]];
+            
+            NSString *formatTemplate = [NSDateFormatter dateFormatFromTemplate:@"yyyy MMMM d" options:0 locale:[NSLocale currentLocale]];
+            [formatter setDateFormat:formatTemplate];
+        }
+        
+      
+        
+        NSArray *numericSection = [[theSection name] componentsSeparatedByString:@"-"];
+        NSInteger year = [numericSection [0] integerValue];
+        NSInteger month =  [numericSection [1] integerValue];
+        NSInteger day = [numericSection[2] integerValue];
+        
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+        dateComponents.year = year;
+        dateComponents.month = month;
+        dateComponents.day = day;
+        dateComponents.hour = [numericSection [2] integerValue];
+        
+        NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+        
+        NSString *titleString = [formatter stringFromDate:date];
+        
+        NSInteger min = [numericSection [3] integerValue];
+        switch (min) {
+            case 0:
+                titleString =[titleString stringByAppendingString:@" Morning"];
+                break;
+           case 1:
+                titleString =[titleString stringByAppendingString:@" Afternoon"];
+                break;
+                case 2:
+
+                titleString =[titleString stringByAppendingString:@" Evening"];
+                break;
+            default:
+                break;
+        }
+        
+        return titleString;
+        
+    }
+    else return nil;
 }
 
 

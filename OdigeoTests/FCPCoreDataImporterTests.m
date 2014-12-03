@@ -139,7 +139,7 @@
     
     [[FCPCoreDataStore privateQueueContext] performBlock:^{
     
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"InBoundFlight"];
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
         
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"airline"
                                                                        ascending:YES];

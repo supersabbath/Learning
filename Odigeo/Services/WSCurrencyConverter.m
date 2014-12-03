@@ -55,7 +55,6 @@
         
         if (rate == [NSNull null]) {
           
-            NSLog(@"*******************  Connection %@", currency);
             NSURL *requestURL = [self urlForCurrency:currency];
             NSURLResponse *response= nil;
             NSError *error =nil;
@@ -83,7 +82,7 @@
             }
         }else { // in cache
             
-            NSLog(@"*******************  from Cache");
+          //  NSLog(@"*******************  from Cache");
             [self finishWithBlock:_opertionBlock andResonseData:@{currency:rate,@"cache":@"true"} andError:nil];
             
         }
@@ -119,7 +118,7 @@
 {
     NSNumber *rate = [_cache objectForKey:currency];
     
-    NSLog(@"rate in chace %@",currency );
+  //  NSLog(@"rate in chace %@",currency );
     if (!rate) {
         return  [NSNull null];
     }
@@ -130,8 +129,7 @@
 
 -(void) safeToCacheRate:(NSNumber*)number forKey:(NSString*) currency
 {
-    
-    NSLog(@"Savin to cache");
+   // NSLog(@"Savin to cache");
     _cache[currency]=number;
 }
 

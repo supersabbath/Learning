@@ -9,8 +9,7 @@
 #import "TicketsTableViewController.h"
 #import "FetchedResultsControllerDataSource.h"
 #import "Ticket.h"
-#import "InBoundFlight.h"
-#import "OutBoundFlight.h"
+#import "Flight.h"
 #import "PriceTableViewCell.h"
 #import "WSCurrencyConverter.h"
 
@@ -18,58 +17,59 @@ static NSString *const reuseCellID = @"PriceTableViewCell";
 
 @interface TicketsTableViewController () <FetchedResultsControllerDataSourceDelegate>
 
-@property(strong,nonatomic)NSDateFormatter*dateFormat;
 @end
 
 @implementation TicketsTableViewController
-@synthesize dateFormat;
+
+
 #pragma mark -ViewController livecycle
- 
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil andFetchRequest:(NSFetchRequest*)fetch
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nil];
+    
+    if (self) {
+        _mainRequest =fetch;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
-
-    
-    self.title =NSStringFromClass([self class]);
-    
+    self.title =(_externalTitle)?_externalTitle :NSStringFromClass([self class]);
     [self cellFromNib];
-   
-    [self configureCoreDateFetchRequest];
-    
+    [self configFetchDataSouce];
     [self configureEdgeLayout];
     
     [super viewDidLoad];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"FTCCoreDataImportFinish" object:nil];
 }
+
+
 -(void) reloadData:(NSNotification*) notifications {
     
     NSError * err=nil;
     [self.fetchDataSource.fetchedResultsController performFetch:&err];
-      [self.tableView reloadData];
+    [self.tableView reloadData];
     
 }
 
--(void) cellFromNib {
-    
+-(void) cellFromNib
+{    
     UINib *cellNib = [UINib nibWithNibName:reuseCellID bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:reuseCellID];
     
 }
 
--(void) configureCoreDateFetchRequest{
 
 
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ticket"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"euroPrice" ascending:YES]];
-    [request setFetchBatchSize:20];
-    
+-(void) configFetchDataSouce
+{
     self.fetchDataSource.delegate = self;
-    self.fetchDataSource.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.fetchDataSource.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:_mainRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     self.fetchDataSource.reuseIdentifier = reuseCellID;
-  
-   
 }
+
 
 -(void) viewDidAppear:(BOOL)animated
 {
@@ -86,23 +86,63 @@ static NSString *const reuseCellID = @"PriceTableViewCell";
     
     [self stopObservingSALocaliztionNotifications];
 }
+
 #pragma mark -FetchedResultsControllerDataSource
 
 - (void)configureCell:(PriceTableViewCell *)cell withObject:(Ticket*) flightTicket
 {
-  
     
-    cell.fromLabel.text = [@"from: " stringByAppendingString:flightTicket.outBountFlight.origin];
-    
-    cell.destinationLabel.text = [@"to: " stringByAppendingString:flightTicket.outBountFlight.destiny];
     cell.priceLabel.text = [self formatPriceForLabel:flightTicket.euroPrice];
     
-    cell.inBoundOrigin.text = [@"from: " stringByAppendingString:flightTicket.inBoundFlight.origin];
-    cell.inBoundDestination.text = [@"from: " stringByAppendingString:flightTicket.inBoundFlight.destiny];
+    NSSet *set = [flightTicket flights];
+    
+    [set enumerateObjectsUsingBlock:^(Flight *obj, BOOL *stop) {
+        NSLog(@"airlien %@",obj.airline);
+        if ([obj.isInBound boolValue]) {
+            [self configureLabelsForInBoundFlight:obj inCell:cell];
+        }else{
+            [self configureLabelsForOutBountFlight:obj inCell:cell];
+        }
+    }];
+}
 
+
+
+-(void) configureLabelsForOutBountFlight:(Flight*) flight inCell:(PriceTableViewCell*) cell
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-dd hh:mm"];
+    
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [dateFormat setTimeZone:gmt];
+    
+    
+    cell.fromLabel.text =[self concatDateString:[dateFormat stringFromDate:flight.departureDate] withCity: flight.origin];
+    cell.destinationLabel.text = [self concatDateString:[dateFormat stringFromDate:flight.arrivalDate] withCity:flight.destiny];
     
 }
 
+
+-(void) configureLabelsForInBoundFlight:(Flight*) flight inCell:(PriceTableViewCell*) cell
+{
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YY-MM-dd hh:mm"];
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [dateFormat setTimeZone:gmt];
+    
+    cell.inBoundOrigin.text =[self concatDateString:[dateFormat stringFromDate:flight.departureDate] withCity: flight.origin];
+    cell.inBoundDestination.text  = [self concatDateString:[dateFormat stringFromDate:flight.arrivalDate] withCity:flight.destiny];
+}   
+
+
+
+#pragma mark -Currency string processing and formating
+-(NSString*) concatDateString:(NSString*) dateString withCity:(NSString*) city {
+    
+    
+    return [dateString stringByAppendingFormat:@" %@", city ];
+}
 
 -(NSString*) formatPriceForLabel:(NSDecimalNumber*) price {
     
@@ -115,9 +155,9 @@ static NSString *const reuseCellID = @"PriceTableViewCell";
     
 }
 
-#pragma mark -Currency Process
- 
 
+
+#pragma mark - TableViewDelegates
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

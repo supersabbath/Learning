@@ -17,11 +17,6 @@
 @property (nonatomic, retain) NSString * currency;
 @property (nonatomic, retain) NSDecimalNumber * euroPrice;
 @property (nonatomic, retain) NSSet *flights;
-
-
-
--(void) loadPriceFromDictionary:(NSDictionary*) dictionary;
--(BOOL) isEuroPriceAvailable;
 @end
 
 @interface Ticket (CoreDataGeneratedAccessors)

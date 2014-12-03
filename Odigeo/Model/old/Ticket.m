@@ -2,12 +2,13 @@
 //  Ticket.m
 //  Odigeo
 //
-//  Created by Fernando Canon on 03/12/14.
+//  Created by Fernando Canon on 29/11/14.
 //  Copyright (c) 2014 Fernando Canon. All rights reserved.
 //
 
 #import "Ticket.h"
-#import "Flight.h"
+#import "InBoundFlight.h"
+#import "OutBoundFlight.h"
 
 
 @implementation Ticket
@@ -15,8 +16,8 @@
 @dynamic amount;
 @dynamic currency;
 @dynamic euroPrice;
-@dynamic flights;
- 
+@dynamic inBoundFlight;
+@dynamic outBountFlight;
 
 -(void) loadPriceFromDictionary:(NSDictionary*) dictionary{
     
@@ -28,11 +29,11 @@
 
 #pragma mark -Currency Process
 
--(BOOL) isEuroPriceAvailable
+ -(BOOL) isEuroPriceAvailable
 {
-    
+ 
     return [self.currency isEqualToString:@"EUR"];
-    
+
 }
 
 

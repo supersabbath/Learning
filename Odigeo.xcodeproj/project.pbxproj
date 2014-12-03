@@ -41,6 +41,14 @@
 		0C263D911A2BBE44001C563C /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */; };
 		0C263D921A2BBE44001C563C /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */; };
 		0C263D941A2BCB1E001C563C /* HomeViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C263D931A2BCB1E001C563C /* HomeViewControllerTest.m */; };
+		0C3166851A2F71BF00834441 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3166841A2F71BF00834441 /* Flight.m */; };
+		0C3166861A2F71BF00834441 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3166841A2F71BF00834441 /* Flight.m */; };
+		0C31668D1A2F743300834441 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C31668C1A2F743300834441 /* Ticket.m */; };
+		0C31668E1A2F743300834441 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C31668C1A2F743300834441 /* Ticket.m */; };
+		0C3166911A2F881A00834441 /* GroupedAirlinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3166901A2F881A00834441 /* GroupedAirlinesViewController.m */; };
+		0C3166921A2F881B00834441 /* GroupedAirlinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3166901A2F881A00834441 /* GroupedAirlinesViewController.m */; };
+		0C3166951A2F930900834441 /* GroupedFlightsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3166941A2F930900834441 /* GroupedFlightsTableControllerViewController.m */; };
+		0C3166961A2F930900834441 /* GroupedFlightsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3166941A2F930900834441 /* GroupedFlightsTableControllerViewController.m */; };
 		0C473C1A1A2D942C00F2BEFA /* AirlinesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C473C181A2D942C00F2BEFA /* AirlinesListTableViewController.m */; };
 		0C473C1B1A2D942C00F2BEFA /* AirlinesListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C473C191A2D942C00F2BEFA /* AirlinesListTableViewController.xib */; };
 		0C473C1F1A2D976900F2BEFA /* AirlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C473C1D1A2D976900F2BEFA /* AirlineTableViewCell.m */; };
@@ -55,12 +63,6 @@
 		0CC6126E1A2B492B00D4C9A9 /* TicketsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC6126C1A2B492B00D4C9A9 /* TicketsTableViewController.xib */; };
 		0CC612741A2B494700D4C9A9 /* AnimationMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC612711A2B494700D4C9A9 /* AnimationMessageView.m */; };
 		0CC612751A2B494700D4C9A9 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC612731A2B494700D4C9A9 /* UIImage+ImageEffects.m */; };
-		0CC6127D1A2B49B300D4C9A9 /* InBoundFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC612781A2B49B300D4C9A9 /* InBoundFlight.m */; };
-		0CC6127E1A2B49B300D4C9A9 /* InBoundFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC612781A2B49B300D4C9A9 /* InBoundFlight.m */; };
-		0CC6127F1A2B49B300D4C9A9 /* OutBoundFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6127A1A2B49B300D4C9A9 /* OutBoundFlight.m */; };
-		0CC612801A2B49B300D4C9A9 /* OutBoundFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6127A1A2B49B300D4C9A9 /* OutBoundFlight.m */; };
-		0CC612811A2B49B300D4C9A9 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6127C1A2B49B300D4C9A9 /* Ticket.m */; };
-		0CC612821A2B49B300D4C9A9 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6127C1A2B49B300D4C9A9 /* Ticket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,14 @@
 		0C263D8D1A2BBE44001C563C /* PriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceTableViewCell.m; sourceTree = "<group>"; };
 		0C263D8E1A2BBE44001C563C /* PriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
 		0C263D931A2BCB1E001C563C /* HomeViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTest.m; sourceTree = "<group>"; };
+		0C3166831A2F71BF00834441 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		0C3166841A2F71BF00834441 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		0C31668B1A2F743300834441 /* Ticket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		0C31668C1A2F743300834441 /* Ticket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		0C31668F1A2F881A00834441 /* GroupedAirlinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupedAirlinesViewController.h; sourceTree = "<group>"; };
+		0C3166901A2F881A00834441 /* GroupedAirlinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupedAirlinesViewController.m; sourceTree = "<group>"; };
+		0C3166931A2F930900834441 /* GroupedFlightsTableControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupedFlightsTableControllerViewController.h; sourceTree = "<group>"; };
+		0C3166941A2F930900834441 /* GroupedFlightsTableControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupedFlightsTableControllerViewController.m; sourceTree = "<group>"; };
 		0C473C171A2D942C00F2BEFA /* AirlinesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlinesListTableViewController.h; sourceTree = "<group>"; };
 		0C473C181A2D942C00F2BEFA /* AirlinesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlinesListTableViewController.m; sourceTree = "<group>"; };
 		0C473C191A2D942C00F2BEFA /* AirlinesListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirlinesListTableViewController.xib; sourceTree = "<group>"; };
@@ -146,12 +156,6 @@
 		0CC612711A2B494700D4C9A9 /* AnimationMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationMessageView.m; sourceTree = "<group>"; };
 		0CC612721A2B494700D4C9A9 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		0CC612731A2B494700D4C9A9 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		0CC612771A2B49B300D4C9A9 /* InBoundFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InBoundFlight.h; sourceTree = "<group>"; };
-		0CC612781A2B49B300D4C9A9 /* InBoundFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InBoundFlight.m; sourceTree = "<group>"; };
-		0CC612791A2B49B300D4C9A9 /* OutBoundFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutBoundFlight.h; sourceTree = "<group>"; };
-		0CC6127A1A2B49B300D4C9A9 /* OutBoundFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutBoundFlight.m; sourceTree = "<group>"; };
-		0CC6127B1A2B49B300D4C9A9 /* Ticket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
-		0CC6127C1A2B49B300D4C9A9 /* Ticket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +355,10 @@
 				0C473C171A2D942C00F2BEFA /* AirlinesListTableViewController.h */,
 				0C473C181A2D942C00F2BEFA /* AirlinesListTableViewController.m */,
 				0C473C191A2D942C00F2BEFA /* AirlinesListTableViewController.xib */,
+				0C31668F1A2F881A00834441 /* GroupedAirlinesViewController.h */,
+				0C3166901A2F881A00834441 /* GroupedAirlinesViewController.m */,
+				0C3166931A2F930900834441 /* GroupedFlightsTableControllerViewController.h */,
+				0C3166941A2F930900834441 /* GroupedFlightsTableControllerViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -375,12 +383,10 @@
 		0CC612761A2B49B300D4C9A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0CC612771A2B49B300D4C9A9 /* InBoundFlight.h */,
-				0CC612781A2B49B300D4C9A9 /* InBoundFlight.m */,
-				0CC612791A2B49B300D4C9A9 /* OutBoundFlight.h */,
-				0CC6127A1A2B49B300D4C9A9 /* OutBoundFlight.m */,
-				0CC6127B1A2B49B300D4C9A9 /* Ticket.h */,
-				0CC6127C1A2B49B300D4C9A9 /* Ticket.m */,
+				0C31668B1A2F743300834441 /* Ticket.h */,
+				0C31668C1A2F743300834441 /* Ticket.m */,
+				0C3166831A2F71BF00834441 /* Flight.h */,
+				0C3166841A2F71BF00834441 /* Flight.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -508,22 +514,23 @@
 				0C263D841A2BB693001C563C /* UIView+LoadFromNib.m in Sources */,
 				0C263D8F1A2BBE44001C563C /* PriceTableViewCell.m in Sources */,
 				0C263D761A2B55DB001C563C /* WSCurrencyConverter.m in Sources */,
+				0C31668D1A2F743300834441 /* Ticket.m in Sources */,
 				0CC612751A2B494700D4C9A9 /* UIImage+ImageEffects.m in Sources */,
 				0CC612411A2B473F00D4C9A9 /* AppDelegate.m in Sources */,
 				0C473C1F1A2D976900F2BEFA /* AirlineTableViewCell.m in Sources */,
+				0C3166951A2F930900834441 /* GroupedFlightsTableControllerViewController.m in Sources */,
 				0C473C1A1A2D942C00F2BEFA /* AirlinesListTableViewController.m in Sources */,
 				0C263D5D1A2B4CA5001C563C /* WSManager.m in Sources */,
 				0CC6123E1A2B473F00D4C9A9 /* main.m in Sources */,
-				0CC612811A2B49B300D4C9A9 /* Ticket.m in Sources */,
 				0C263D451A2B4C8B001C563C /* Odigeo.xcdatamodeld in Sources */,
 				0C263D431A2B4C8B001C563C /* NSManagedObjectContext+TBAdditions.m in Sources */,
-				0CC6127F1A2B49B300D4C9A9 /* OutBoundFlight.m in Sources */,
+				0C3166851A2F71BF00834441 /* Flight.m in Sources */,
 				0C263D421A2B4C8B001C563C /* NSManagedObject+TBAdditions.m in Sources */,
 				0CC612671A2B48D400D4C9A9 /* FetchedResultsControllerDataSource.m in Sources */,
 				0C263D591A2B4C9D001C563C /* ExtendedLog.m in Sources */,
 				0CC612681A2B48D400D4C9A9 /* HomeViewController.m in Sources */,
+				0C3166911A2F881A00834441 /* GroupedAirlinesViewController.m in Sources */,
 				0C263D401A2B4C8B001C563C /* FCPCoreDataStore.m in Sources */,
-				0CC6127D1A2B49B300D4C9A9 /* InBoundFlight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,16 +539,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C263D661A2B4DFE001C563C /* ModelsTest.m in Sources */,
-				0CC6127E1A2B49B300D4C9A9 /* InBoundFlight.m in Sources */,
 				0C263D6B1A2B4DFE001C563C /* XCTestCase+FCPHelper.m in Sources */,
 				0C263D6A1A2B4DFE001C563C /* WSManagerTest.m in Sources */,
 				0C263D941A2BCB1E001C563C /* HomeViewControllerTest.m in Sources */,
 				0C263D721A2B553F001C563C /* currencyServiceTest.m in Sources */,
-				0CC612801A2B49B300D4C9A9 /* OutBoundFlight.m in Sources */,
 				0C263D851A2BB693001C563C /* UIView+LoadFromNib.m in Sources */,
-				0CC612821A2B49B300D4C9A9 /* Ticket.m in Sources */,
+				0C3166861A2F71BF00834441 /* Flight.m in Sources */,
 				0C263D6D1A2B4E11001C563C /* FCPCoreDataImporterTests.m in Sources */,
+				0C3166961A2F930900834441 /* GroupedFlightsTableControllerViewController.m in Sources */,
+				0C31668E1A2F743300834441 /* Ticket.m in Sources */,
 				0C263D871A2BB693001C563C /* UIViewController+io7Support.m in Sources */,
+				0C3166921A2F881B00834441 /* GroupedAirlinesViewController.m in Sources */,
 				0C263D771A2B55DB001C563C /* WSCurrencyConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

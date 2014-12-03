@@ -12,6 +12,7 @@
 #import "FCPCoreDataStore.h"
 #import "AnimationMessageView.h"
 #import "AirlinesListTableViewController.h"
+#import "GroupedAirlinesViewController.h"
 
 @interface HomeViewController ()
 
@@ -48,7 +49,11 @@
 - (IBAction)presentPriceList:(id)sender
 {
     
-    TicketsTableViewController *ticketsList =[[TicketsTableViewController alloc] initWithNibName:@"TicketsTableViewController" bundle:nil];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ticket"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"euroPrice" ascending:YES]];
+    [request setFetchBatchSize:20];
+    
+    TicketsTableViewController *ticketsList =[[TicketsTableViewController alloc] initWithNibName:@"TicketsTableViewController" andFetchRequest:request]; // REquest pass as a dependency
     [ticketsList setManagedObjectContext:[FCPCoreDataStore mainQueueContext]];
     [self pushViewController:ticketsList];
 }
@@ -57,7 +62,18 @@
 
 - (IBAction)presentAirlinesList:(id)sender
 {
-    AirlinesListTableViewController* airlinesListViewController =[[AirlinesListTableViewController alloc] initWithNibName:@"AirlinesListTableViewController" bundle:nil];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"airline"
+                                                                   ascending:YES];
+    
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setResultType:NSDictionaryResultType];
+    [fetchRequest setReturnsDistinctResults:YES];
+    [fetchRequest setPropertiesToFetch:@[@"airline"]];
+    [fetchRequest setFetchBatchSize:20];
+    
+    AirlinesListTableViewController* airlinesListViewController =[[AirlinesListTableViewController alloc] initWithNibName:@"AirlinesListTableViewController" andFetchRequest:fetchRequest];
     [airlinesListViewController setManagedObjectContext:[FCPCoreDataStore mainQueueContext]];
     [self pushViewController:airlinesListViewController];
 }
@@ -66,6 +82,21 @@
 - (IBAction)presentTimeTablesLIst:(id)sender
 {
 
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"airline"
+                                                                   ascending:YES];
+    
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setResultType:NSDictionaryResultType];
+    [fetchRequest setReturnsDistinctResults:YES];
+    [fetchRequest setPropertiesToFetch:@[@"airline"]];
+    [fetchRequest setFetchBatchSize:20];
+    
+    GroupedAirlinesViewController* groupedAirlinesTVC =[[GroupedAirlinesViewController alloc] initWithNibName:@"AirlinesListTableViewController" andFetchRequest:fetchRequest];
+    [groupedAirlinesTVC setManagedObjectContext:[FCPCoreDataStore mainQueueContext]];
+    [self pushViewController:groupedAirlinesTVC];
+    
 }
 
 -(void) pushViewController:(UIViewController*) viewController {

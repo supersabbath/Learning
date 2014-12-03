@@ -11,8 +11,8 @@
 #import "WSCurrencyConverter.h"
 
 #import "Ticket.h"
-#import "InBoundFlight.h"
-#import "OutBoundFlight.h"
+
+#import "Flight.h"
 
 
 @interface FCPCoreDataImporter ()
@@ -55,21 +55,23 @@
                 
                 [self performSyncCurrencyConversionRateFetchForTicket:fligthTicket]; // this will block this thread
                
-                InBoundFlight *inBound=[InBoundFlight createManagedObjectInContext:_storageContext];
+                Flight *inBound=[Flight createManagedObjectInContext:_storageContext];
                 [inBound loadFlightDataFromDictionary:ticket[@"inBound"]];
+                inBound.isInBound = @1;
                 
-                OutBoundFlight *outBound=[OutBoundFlight createManagedObjectInContext:_storageContext];
+                Flight *outBound=[Flight createManagedObjectInContext:_storageContext];
+            
                 [outBound loadFlightDataFromDictionary:ticket[@"outBound"]];
+              
                 
-                fligthTicket.inBoundFlight = inBound;
-                fligthTicket.outBountFlight = outBound;
-                
+                [fligthTicket addFlights:[NSSet setWithObjects:inBound,outBound, nil]];
+  
                 self.batchCount++;
                 
                 if (self.batchCount  == ticketsInfo.count) {  // notificamos al main context para que refrescar cada 10
                     NSError *error = nil;
                     [_storageContext save:&error];
-                    NSLog(@"_____________Saving __________")
+                    NSLog(@"_____________Saving _____________")
                     if (error) {
                         NSLog(@"Error: %@", error.userInfo);
                     }
@@ -106,7 +108,7 @@
             }];
     
         }else{
-             NSLog(@"Not downloading euro %@",[ticket.amount stringValue]);
+             //NSLog(@"Not downloading euro %@",[ticket.amount stringValue]);
           
             ticket.euroPrice = ticket.amount; // NOTE: set the transient property, it will no be store
         }

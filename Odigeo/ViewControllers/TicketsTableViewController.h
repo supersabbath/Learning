@@ -11,15 +11,29 @@
 
 @class  FetchedResultsControllerDataSource;
 @class Ticket;
+@class Flight;
 @class WSCurrencyConverter;
-
+@class PriceTableViewCell;
 
 @interface TicketsTableViewController : UITableViewController  <FetchedResultsControllerDataSourceDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil andFetchRequest:(NSFetchRequest*)fetch;
 
+
+@property(strong,nonatomic) NSFetchRequest *mainRequest;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet FetchedResultsControllerDataSource *fetchDataSource;
-
+@property (strong, nonatomic) NSString *externalTitle;
  
 @end
 
+/*
+ Subclass available methods
+ */
+@interface TicketsTableViewController ()
+
+-(void) configureLabelsForInBoundFlight:(Flight*) flight inCell:(PriceTableViewCell*) cell;
+-(void) configureLabelsForOutBountFlight:(Flight*) flight inCell:(PriceTableViewCell*) cell;
+-(NSString*) formatPriceForLabel:(NSDecimalNumber*) price;
+
+@end

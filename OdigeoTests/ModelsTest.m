@@ -12,9 +12,7 @@
 // SUTs
 
 #import "Ticket.h"
-#import "InBoundFlight.h"
-#import "OutBoundFlight.h"
-
+#import "Flight.h"
 
 //Dependencies
 #import "FCPCoreDataStore.h"
@@ -47,7 +45,8 @@
     [super tearDown];
 }
 
-- (void)testLoadDataInTicket {
+- (void)testLoadDataInTicket
+{
     // This is an example of a functional test case.
     Ticket *sut = [Ticket createManagedObjectInContext:[FCPCoreDataStore privateQueueContext]];
     NSDictionary *d =_testingData[@"price"];
@@ -61,7 +60,7 @@
 
 - (void)testInBoundFlight {
     
-    InBoundFlight *sut = [InBoundFlight createManagedObjectInContext:[FCPCoreDataStore privateQueueContext]];
+    Flight *sut = [Flight createManagedObjectInContext:[FCPCoreDataStore privateQueueContext]];
 
     [sut loadFlightDataFromDictionary: _testingData[@"inBound"]];
   
@@ -87,33 +86,6 @@
     XCTAssertTrue([sut.departureDate isEqualToDate:[dateFormat dateFromString:@"2015-03-08 02:22"]], @"Dates must be the same");
 }
 
-- (void)testOutBoundFlight {
-    
-    OutBoundFlight *sut = [OutBoundFlight createManagedObjectInContext:[FCPCoreDataStore privateQueueContext]];
-    
-    [sut loadFlightDataFromDictionary: _testingData[@"outBound"]];
-    
-    NSString *result= [[sut.arrivalDate description] substringToIndex:16];
-    
-    BOOL ts= [result isEqualToString:@"2015-02-26 11:08"];
-    
-    XCTAssertTrue(ts,@"not equal");
-    
-    XCTAssertTrue([sut.destiny isEqualToString:@"PAR"],
-                  @"Strings are not equal %@ %@", @"PAR", sut.destiny);
-    
-    XCTAssertTrue([sut.origin isEqualToString:@"LON"], @"Strings are not equal %@ %@", @"LON", sut.origin);
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    
-    [dateFormat setDateFormat:@"YYYY-MM-dd hh:mm"];
-    
-    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-    
-    [dateFormat setTimeZone:gmt];
-    
-    XCTAssertTrue([sut.departureDate isEqualToDate:[dateFormat dateFromString:@"2015-02-26 09:33"]], @"Dates must be the same");
-}
 
 
 - (void)dtestPerformanceExample {
